@@ -1,0 +1,100 @@
+:root {
+    --btn-color: #E8DBEE;
+    --paragraph-color: #8e7f93;
+    --backround-color: #f7f7f7;
+    --defult-font: "Lato", sans-serif;
+    --japanese-font: "Cherry Bomb One", system-ui;
+}
+
+body {
+  font-family: var(--defult-font);
+  background-color: var(--backround-color);
+  background-attachment: fixed;
+  background-image: linear-gradient(
+    133deg,
+    rgba(254, 74, 75, 0.15) 5%,
+    rgba(253, 157, 166, 0.15) 35%,
+    rgba(106, 0, 206, 0.15)
+  );
+}
+
+
+a {
+  color: #8e7f93;
+}
+.name {
+  color: plum;
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+.ganbare {
+  font-family: var(--japanese-font);
+  font-style: normal;
+  font-size: 50px;
+  color: plum;
+}
+
+h1 {
+  font-family: var(--defult-font);
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.main-title {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: plum;
+  text-decoration-thickness: 3px;
+}
+
+p {
+  font-weight: normal;
+}
+
+.hero {
+  background-color: white;
+  border: 80px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 90px auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 30px;
+  margin: 0;
+  color: #8e7f93;
+}
+
+.btn-branding {
+  background-color: var(--btn-color);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  font-size: 18px;
+  line-height: 27px;
+  padding: 15px 30px;
+}
+
+.btn-branding:hover {
+  background-color: plum;
+  color: white;
+}
+
+.content-container {
+  background-color: white;
+  border: 80px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 90px auto;
+  padding: 40px;
+  text-align: center;
+  color: #8e7f93;
+}
+
+.content-container p {
+  font-size: large;
+  color: #8e7f93;
+}

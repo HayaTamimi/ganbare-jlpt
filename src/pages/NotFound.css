@@ -1,0 +1,30 @@
+.not-found {
+  text-align: center;
+  margin: 100px;
+}
+
+.not-found h3 {
+  font-size: 100px;
+  color: rgb(67, 67, 67);
+}
+
+.not-found h4 {
+  color: gray;
+}
+
+.not-found p{
+  font-weight: bold;
+
+}
+
+.not-found p, .not-found h6 {
+  font-size: x-small;
+  margin-top: 30px;
+  color: rgba(128,128,128,0.5);
+}
+  
+.not-found h6 {
+  margin-top: 100px;
+  font-weight: 200;
+
+}

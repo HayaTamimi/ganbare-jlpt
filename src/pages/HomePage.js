@@ -1,7 +1,12 @@
 import React from 'react'
+import Main from "../components/main/Main"
+import Footer from '../components/footer/Footer'
 
-export default function HomePage() {
+export default function Homepage() {
   return (
-    <div>HomePage</div>
+    <div>
+      <Main />
+      <Footer />
+    </div>
   )
 }
