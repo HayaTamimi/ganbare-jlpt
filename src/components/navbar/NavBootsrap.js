@@ -19,7 +19,7 @@ export default function NavBootstrap() {
               </Nav.Link>
               <Nav.Link
                 style={{ color: "##595959" }}
-                href="/quiz"
+                href="/quiz/levels"
               >
                 Quiz
               </Nav.Link>

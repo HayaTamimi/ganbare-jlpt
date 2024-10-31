@@ -1,5 +1,6 @@
 import React from "react";
 import "./Main.css";
+import { Link } from "react-router-dom";
 
 export default function Main() {
   
@@ -12,7 +13,7 @@ export default function Main() {
           you pass but only if you did your best ✨
         </h1>
         <div>
-          <button className="btn-branding">Take Quiz</button>
+          <Link to="/quiz/levels" className="btn-branding"  >Take Quiz</Link>
         </div>
       </div>
     </div>
