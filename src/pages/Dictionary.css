@@ -1,0 +1,21 @@
+.dictionary {
+  text-align: center;
+}
+
+.dictionary form {
+  margin-top: 50px;
+  width: 100%;
+  padding-top: 30px;
+}
+
+.dictionary small {
+  color: rgba(128, 128, 128, 0.5);
+  margin: auto;
+  font-size: x-small;
+}
+
+input[type="search"] {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 8px;
+
+}

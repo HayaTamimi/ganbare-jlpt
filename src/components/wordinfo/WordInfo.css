@@ -1,0 +1,36 @@
+
+.word-info .row {
+  background-color: white;
+  border-radius: 8px;
+  margin: auto;
+  padding: 20px 50px;
+  margin-top: 30px;
+  width: 500px;
+}
+
+.jp-word {
+  margin-top: 20px;
+  color: rgb(86, 86, 86);
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.means {
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.reading {
+  color: grey;
+  margin-top: 10px;
+}
+
+.lvl {
+ background-color: #e8dbee;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+  line-height: 30px;
+  padding: 10px 15px;
+}

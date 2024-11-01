@@ -17,22 +17,16 @@ export default function NavBootstrap() {
               <Nav.Link style={{ color: "##595959" }} href="/">
                 Home
               </Nav.Link>
-              <Nav.Link
-                style={{ color: "##595959" }}
-                href="/quiz/levels"
-              >
+              <Nav.Link style={{ color: "##595959" }} href="/quiz/levels">
                 Quiz
               </Nav.Link>
-              <Nav.Link
-                style={{ color: "##595959" }}
-                href="/leaderboard"
-              >
+              <Nav.Link style={{ color: "##595959" }} href="/dictionary">
+                Dictionary
+              </Nav.Link>
+              <Nav.Link style={{ color: "##595959" }} href="/leaderboard">
                 Leaderboard
               </Nav.Link>
-              <Nav.Link
-                style={{ color: "#gray" }}
-                href="/about"
-              >
+              <Nav.Link style={{ color: "#gray" }} href="/about">
                 About
               </Nav.Link>
             </Nav>

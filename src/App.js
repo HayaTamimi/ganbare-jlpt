@@ -6,31 +6,27 @@ import axios from "axios";
 import Homepage from "../src/pages/Homepage";
 import NotFound from "../src/pages/NotFound";
 import About from "../src/pages/About";
-//import Quiz from "../src/pages/Quiz";
-// import Leaderboard from "../src/pages/Leaderboard";
 import LayOut from "../src/components/layout/LayOut";
-import Favorite from "./pages/Favorite";
 import LevelPage from "./pages/LevelPage";
-
+import Dictionary from "./pages/Dictionary";
 
 export default function App() {
-  let apiUrl = "http://localhost:5171/";
+  //let apiUrl = "http://localhost:5171/";
+  let apiUrl =
+    "http://localhost:5171/api/v1/questions/2f92ce7f-9753-41c0-988b-50e0a250ba51";
+
   //console.log(response);
 
   const [response, setResponse] = useState([]);
   const [load, setLoad] = useState(true);
   const [error, setError] = useState(null);
-  //const [searchInput, setSearchInput] = useState(""); no need
-  //const [fav, setFav] = useState([]);
-
-  //console.log(searchInput);
-  console.log(response);
 
   useEffect(() => {
     function getData() {
       axios
         .get(apiUrl)
         .then((response) => {
+         // console.log(response.data.questionText); worked!
           setResponse(response.data);
           setLoad(false);
         })
@@ -43,7 +39,7 @@ export default function App() {
   }, []);
 
   if (load) {
-    return <div> Please wait </div>;
+    return <div>  </div>;
   }
 
   if (error) {
@@ -57,48 +53,24 @@ export default function App() {
       children: [
         {
           path: "/about",
-          element: <About />,
+          element: <About response={response} setResponse={setResponse} />,
         },
-        // {
-        //   path: "/quiz",
-        //   element: (
-        //     <Quiz
-        //     // products={products}
-        //     // searchInput={searchInput}
-        //     // setSearchInput={setSearchInput}
-        //     />
-        //   ),
-        // },
+
         {
           path: "/quiz/levels",
-          element: (
-            <LevelPage
-            // products={products}
-            // searchInput={searchInput}
-            // setSearchInput={setSearchInput}
-            />
-          ),
+          element: <LevelPage />,
         },
-        // {
-        //   path: "/shop/:productId",
-        //   element: <Product
-        //     // fav={fav} setFav={setFav}
-        //   />,
-        // },
+
         {
           path: "/",
-          element: <Homepage response={response} setResponse={setResponse} />,
+          element: <Homepage />,
         },
         {
-          path: "/favorite",
-          element: (
-            <Favorite
-            //fav={fav}
-            />
-          ),
+          path: "/dictionary",
+          element: <Dictionary />,
         },
         {
-          path: "*", // for random typing
+          path: "*",
           element: <NotFound />,
         },
       ],
