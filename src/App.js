@@ -9,14 +9,16 @@ import About from "../src/pages/About";
 import LayOut from "../src/components/layout/LayOut";
 import LevelPage from "./pages/LevelPage";
 import Dictionary from "./pages/Dictionary";
+import UserRegister from "./components/user/UserRegister";
+import UserLogin from "./components/user/UserLogin";
 
 export default function App() {
   //let apiUrl = "http://localhost:5171/";
   let apiUrl =
-    "http://localhost:5171/api/v1/questions/2f92ce7f-9753-41c0-988b-50e0a250ba51";
+    "http://localhost:5171/api/v1/questions/";
 
   //console.log(response);
-
+    
   const [response, setResponse] = useState([]);
   const [load, setLoad] = useState(true);
   const [error, setError] = useState(null);
@@ -68,6 +70,14 @@ export default function App() {
         {
           path: "/dictionary",
           element: <Dictionary />,
+        },
+        {
+          path: "/signup",
+          element: <UserRegister />,
+        },
+        {
+          path: "/signin",
+          element: <UserLogin />,
         },
         {
           path: "*",

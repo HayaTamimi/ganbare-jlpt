@@ -29,6 +29,9 @@ export default function NavBootstrap() {
               <Nav.Link style={{ color: "#gray" }} href="/about">
                 About
               </Nav.Link>
+              <Nav.Link style={{ color: "##595959" }} href="/signup">
+                Sign up
+              </Nav.Link>
             </Nav>
           </Nav>
         </Navbar.Collapse>
