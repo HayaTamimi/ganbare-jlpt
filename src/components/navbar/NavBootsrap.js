@@ -9,7 +9,7 @@ export default function NavBootstrap() {
   return (
     <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "white" }}>
       <Container>
-        <Navbar.Brand href="#home"></Navbar.Brand>
+        <Navbar.Brand href="#home" className="logo-de">　ガンバレガンバレ</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -29,8 +29,8 @@ export default function NavBootstrap() {
               <Nav.Link style={{ color: "#gray" }} href="/about">
                 About
               </Nav.Link>
-              <Nav.Link style={{ color: "##595959" }} href="/signup">
-                Sign up
+              <Nav.Link style={{ color: "##595959" }} href="/signin">
+               Login
               </Nav.Link>
             </Nav>
           </Nav>

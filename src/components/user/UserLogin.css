@@ -9,4 +9,15 @@
   margin-bottom: 15px;
 }
 
+.login .memo {
+  margin: auto;
+  color: gray;
+  margin-top: 25px;
+  font-size: 15px;
+}
 
+.login .memo a{
+ color: gray;
+ text-decoration: none;
+ 
+}

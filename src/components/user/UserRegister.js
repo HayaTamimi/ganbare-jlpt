@@ -32,14 +32,11 @@ export default function UserRegister() {
     axios
       .post(userUrl, userInformation)
       .then((res) => {
-        console.log(res, "response form post");
         if (res.status === 200) {
           navigate("/signin");
         }
       })
       .catch((err) => {
-        console.log(err);
-
         if (err.status === 400) {
           if (err.response.data.errors.Username) {
             alert(err.response.data.errors.Username[0]);
@@ -56,7 +53,7 @@ export default function UserRegister() {
         }
       });
   }
-  
+
   // will delete later
   //password: 123456789Aa*
   //email: "dgsgs@hotmail.com";

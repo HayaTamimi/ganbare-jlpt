@@ -1,99 +1,76 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Quiz.css";
 import axios from "axios";
+import Result from "../result/Result"
 
 export default function Quiz() {
-  // let urlQuestions = "http://localhost:5171/api/v1/questions";
-  // let urlOptions = "http://localhost:5171/api/v1/options";
-  let urlQuiz =
-    "http://localhost:5171/api/v1/quizzes/";
-
-  let [response, setResponse] = useState({});
-  const [load, setLoad] = useState(false);
+  const urlQuestions = "http://localhost:5171/api/v1/questions";
+  const [questions, setQuestions] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-          console.log(response.data);
 
   useEffect(() => {
-    function getData() {
-      axios
-        .get(urlQuiz)
-        .then((response) => {
-          console.log(response.data);
-          setResponse(response.data);
-          setLoad(false);
-        })
-        .catch((error) => {
-          setError("there is error");
-          setLoad(false);
-        });
-    }
-    getData();
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(urlQuestions);
+        setQuestions(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        setError("Error fetching questions");
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  if (load) {
-    return <div> </div>;
+  if (isLoading) {
+    return <div className="load"></div>;
   }
 
   if (error) {
-    return <div> {error.message}</div>;
+    return <div>{error}</div>;
   }
 
+  const handleAnswerClick = (isCorrect) => {
+    if (isCorrect) {
+      setScore(score + 1);
+    }
 
-            console.log(response.data);
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
 
-  // let [question, setQuestion] = useState({});
-  // let [option, setOption] = useState([]);
-  // const [load, setLoad] = useState(false);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     setLoad(true);
-  //     setError(null);
-
-  //     try {
-  //       const questionResponse = await axios.get(
-  //         "http://localhost:5171/api/v1/questions"
-  //       );
-  //       setQuestion(questionResponse.data);
-
-  //       const optionsResponse = await axios.get(
-  //         "http://localhost:5171/api/v1/options"
-  //       );
-  //       setOption(optionsResponse.data);
-  //     } catch (error) {
-  //       setError(error);
-  //     } finally {
-  //       setLoad(false);
-  //     }
-  //   };
-
-  //   getData();
-  // }, []);
-
-  // if (load) {
-  //   return <div></div>;
-  // }
-
-  // if (error) {
-  //   return <div>Error: {error.message}</div>;
-  // }
-
-  //console.log(question[0].questionText);
+  const currentQuestion = questions[currentIndex];
 
   return (
     <div className="container">
-      <div className="quiz">
-        {/* <h2>{question[0].questionText}</h2> */}
-        {/* <div className="options">
-          {option.slice(0, 4).map((option) => (
-            <h5 key={option.optionId}>{option.choice}</h5>
-          ))}
-        </div> */}
-        <button>Next</button>
-        <div className="pages">1 of 10 questions</div>
-      </div>
+      {currentQuestion && (
+        <div className="quiz">
+          <h2>{currentQuestion.questionText}</h2>
+          <div className="options">
+            {currentQuestion.options.map((option, index) => (
+              <h5
+                key={index}
+                onClick={() => handleAnswerClick(option.isCorrect)}
+              >
+                {option.choice}
+              </h5>
+            ))}
+          </div>
+          <div className="pages">
+            Question {currentIndex + 1} of {questions.length}
+          </div>
+        </div>
+      )}
+
+      {currentIndex === questions.length - 1 && (
+        <Result score={ score} />
+      )}
+     
     </div>
   );
 }

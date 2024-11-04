@@ -3,7 +3,12 @@
 }
 
 .nav-link {
-  margin: 0 10px; 
+  margin: 0 10px;
 }
 
+.logo-de {
+  font-family: "Cherry Bomb One", system-ui;
+  color: plum !important;
 
+font-size: 30px !important;
+}

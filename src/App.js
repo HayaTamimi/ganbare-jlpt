@@ -11,14 +11,15 @@ import LevelPage from "./pages/LevelPage";
 import Dictionary from "./pages/Dictionary";
 import UserRegister from "./components/user/UserRegister";
 import UserLogin from "./components/user/UserLogin";
+import UserProfile from "./components/user/UserProfile";
+import ProtectedRoute from "./components/user/ProtectedRoute"
 
 export default function App() {
   //let apiUrl = "http://localhost:5171/";
-  let apiUrl =
-    "http://localhost:5171/api/v1/questions/";
+  let apiUrl = "http://localhost:5171/api/v1/questions/";
 
   //console.log(response);
-    
+
   const [response, setResponse] = useState([]);
   const [load, setLoad] = useState(true);
   const [error, setError] = useState(null);
@@ -28,7 +29,7 @@ export default function App() {
       axios
         .get(apiUrl)
         .then((response) => {
-         // console.log(response.data.questionText); worked!
+          // console.log(response.data.questionText); worked!
           setResponse(response.data);
           setLoad(false);
         })
@@ -40,8 +41,36 @@ export default function App() {
     getData();
   }, []);
 
+  const [userData, setUserData] = useState(null);
+  const [isUserDataLoading, setIsUserDataLoading] = useState(true);
+
+  function getUserData() {
+    setIsUserDataLoading(true);
+    const token = localStorage.getItem("token");
+    axios
+      .get("http://localhost:5171/api/v1/users/auth", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setUserData(res.data);
+        setIsUserDataLoading(false);
+      })
+      .catch((err) => {
+        setIsUserDataLoading(false);
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  let isAuthenticated = userData ? true : false;
+
   if (load) {
-    return <div>  </div>;
+    return <div> </div>;
   }
 
   if (error) {
@@ -77,7 +106,19 @@ export default function App() {
         },
         {
           path: "/signin",
-          element: <UserLogin />,
+          element: <UserLogin getUserData={getUserData} />,
+        },
+        {
+          path: "/profile",
+          element: (
+            <ProtectedRoute
+              isUserDataLoading={isUserDataLoading}
+              isAuthenticated={isAuthenticated}
+              element={
+                <UserProfile userData={userData} setUserData={setUserData} />
+              }
+            />
+          ),
         },
         {
           path: "*",

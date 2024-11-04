@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./UserLogin.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
+export default function UserLogin(props) {
+  const { getUserData } = props;
 
-export default function UserLogin() {
   const [userLogIn, setUserLogIn] = useState({
     email: "",
     password: "",
@@ -17,20 +19,28 @@ export default function UserLogin() {
     setUserLogIn({ ...userLogIn, password: event.target.value });
   }
 
-function logInUser() {
-  const userUrlLogIn = "http://localhost:5171/api/v1/users/signIn";
+  const navigate = useNavigate();
 
-  axios
-    .post(userUrlLogIn, userLogIn)
-    .then((res) => {
-      console.log(res, "response from log in");
-      if (res.status === 200) {
-        localStorage.setItem("token", res.data);
-      }
-    })
-    .catch((error) => console.log(error));
-}
+  function logInUser() {
+    const userUrlLogIn = "http://localhost:5171/api/v1/users/signin";
 
+    axios
+      .post(userUrlLogIn, userLogIn)
+      .then((res) => {
+        console.log(res, "response from log in");
+        if (res.status === 200) {
+          localStorage.setItem("token", res.data);
+        }
+      })
+      .then(() => getUserData())
+      .then(() => navigate("/profile"))
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status === 401) {
+          alert("We do not have account with this email address");
+        }
+      });
+  }
 
   return (
     <div className="container">
@@ -38,7 +48,7 @@ function logInUser() {
         <label htmlFor="email">Email:</label>
 
         <form>
-          <input type="email" id="email" onChange={onChangeHandlerEmailLogin} />
+          <input type="email" onChange={onChangeHandlerEmailLogin} />
         </form>
         <label htmlFor="password">Password:</label>
 
@@ -49,6 +59,13 @@ function logInUser() {
         <button className="user-btn" onClick={logInUser}>
           Sign In
         </button>
+        <div>
+          <h3 className="memo">
+            Don't have account?
+            <br />
+            <a href={"/signup"}> → Sign up</a>
+          </h3>
+        </div>
       </div>
     </div>
   );
