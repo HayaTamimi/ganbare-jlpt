@@ -22,7 +22,6 @@ export default function UserRegister() {
     setUserInformation({ ...userInformation, password: event.target.value });
   }
 
-  //console.log(userInformation, "user");
 
   const navigate = useNavigate();
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function Result(props) {
 const {score} = props
-  const [result, setResult] = uuseState(0)(
+  const [result, setResult] = useState(0)(
     {
       result: "",
       speed: "",
