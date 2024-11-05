@@ -3,10 +3,7 @@ import axios from "axios";
 import "./UserProfile.css";
 
 export default function UserProfile(props) {
-  const {
-    userData, setUserData} = props;
-
-  console.log(userData, "userData from profile");
+  const { userData, setUserData, getUserData } = props;
 
   const [newUsername, setNewUsername] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +29,8 @@ export default function UserProfile(props) {
       )
       .then((res) => {
         setUserData(res.data);
+        getUserData();
+
       })
       .catch((error) => console.log(error));
   };
@@ -49,10 +48,19 @@ export default function UserProfile(props) {
         Let's try our best to achieve our goals!
       </h2>
       <div className="user-edit">
-        <button onClick={handleClick}>Change Username</button>
-        <button onClick={logOutHandler}>Log out</button>
+        <button className="user-btn" onClick={logOutHandler}>
+          Log out
+        </button>
+        <button className="user-btn" onClick={handleClick}>
+          Change Username
+        </button>
+        <p>
+          this name will be showen in the leaderboad
+          <br />
+          so choose carefully!
+        </p>
 
-        {isOpen && ( 
+        {isOpen && (
           <div className="popover">
             <input
               type="text"
@@ -60,7 +68,9 @@ export default function UserProfile(props) {
               value={newUsername}
               onChange={(event) => setNewUsername(event.target.value)}
             />
-            <button onClick={updateUserProfile}>Edit</button>
+            <button className="name-update-btn" onClick={updateUserProfile}>
+              Edit
+            </button>
           </div>
         )}
       </div>

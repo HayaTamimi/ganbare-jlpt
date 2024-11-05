@@ -115,7 +115,11 @@ export default function App() {
               isUserDataLoading={isUserDataLoading}
               isAuthenticated={isAuthenticated}
               element={
-                <UserProfile userData={userData} setUserData={setUserData} />
+                <UserProfile
+                  userData={userData}
+                  setUserData={setUserData}
+                  getUserData={getUserData}
+                />
               }
             />
           ),

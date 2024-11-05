@@ -1,7 +1,53 @@
-.user-profile .hello {
-text-align: center;
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+}
+
+.hello {
+  color: gray;
+  margin-top: 50px;
+  font-size: large;
+  margin-bottom: 50px;
+}
+
+.user-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-btn {
+  margin-top: 20px;
+  border: none;
+  color: white;
+  background-color: plum;
+  border-radius: 4px;
+  padding: 5px 10px;
+  transition: all 0.3s ease-out;
+  margin-bottom: 10px;
+}
+
+.user-btn:hover {
+  background-color: #e8dbee;
+}
+
+
+.name-update-btn {
+    border: none;
+    background-color: white;
+    color: grey;
+    font-weight: 600;
+    font-size: small;
+    border-radius: 5px;
+}
+
+
+p {
 color: gray;
-margin-top: 50px;
-font-size: large;
-margin-bottom: 50px;
+font-size: small;
+text-align: center;
 }
