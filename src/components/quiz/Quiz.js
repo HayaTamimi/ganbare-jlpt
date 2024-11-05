@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Quiz.css";
 import axios from "axios";
-import Result from "../result/Result"
+import Result from "../result/Result";
 
 export default function Quiz() {
   const urlQuestions = "http://localhost:5171/api/v1/questions";
@@ -67,10 +67,7 @@ export default function Quiz() {
         </div>
       )}
 
-      {currentIndex === questions.length - 1 && (
-        <Result score={ score} />
-      )}
-     
+      {currentIndex === questions.length - 1 && <Result score={score} />}
     </div>
   );
 }

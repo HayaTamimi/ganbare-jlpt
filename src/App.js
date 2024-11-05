@@ -14,16 +14,19 @@ import UserLogin from "./components/user/UserLogin";
 import UserProfile from "./components/user/UserProfile";
 import ProtectedRoute from "./components/user/ProtectedRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Quiz from "./components/quiz/Quiz";
+
 
 export default function App() {
-  //let apiUrl = "http://localhost:5171/";
-  let apiUrl = "http://localhost:5171/api/v1/questions/";
+  let apiUrl = "http://localhost:5171/api/v1/quizzes/";
 
-  //console.log(response);
 
-  const [response, setResponse] = useState([]);
+  const [response, setResponse] = useState({});
   const [load, setLoad] = useState(true);
   const [error, setError] = useState(null);
+
+   // console.log(response[0]);
+
 
   useEffect(() => {
     function getData() {
@@ -60,7 +63,7 @@ export default function App() {
       })
       .catch((err) => {
         setIsUserDataLoading(false);
-        console.log(err);
+       // console.log(err);
       });
   }
 
@@ -85,14 +88,21 @@ export default function App() {
       children: [
         {
           path: "/about",
-          element: <About response={response} setResponse={setResponse} />,
+          element: <About />,
         },
 
         {
-          path: "/quiz/levels",
-          element: <LevelPage />,
+          path: "/quizzes",
+          element: <LevelPage response={response}  />,
         },
-
+        {
+          path: "/quizzes/:quizId",
+          element: <Quiz response={response} setResponse={setResponse} />,
+        },
+        // {
+        //   path: "/quizzes?level",
+        //   element: <Quiz response={response} setResponse={setResponse} />,
+        // },
         {
           path: "/",
           element: <Homepage />,

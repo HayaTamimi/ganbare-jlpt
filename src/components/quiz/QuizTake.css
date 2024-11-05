@@ -1,0 +1,5 @@
+.filtered-quizzes {
+display: flex;
+justify-content: space-between;
+margin: auto;
+}

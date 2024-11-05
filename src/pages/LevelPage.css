@@ -33,10 +33,6 @@ body {
   padding-bottom: 10px;
 } */
 
-.row {
-  padding-top: 30px;
-  padding-bottom: 15px;
-}
 
 .btn-branding-easy {
   background-color: var(--btn-color);
@@ -45,7 +41,6 @@ body {
   border: none;
   font-size: 18px;
   line-height: 30px;
-  padding: 10px 15px;
   text-decoration: none;
   transition: all 0.2s ease-out;
 }
@@ -55,7 +50,7 @@ body {
   color: white;
 }
 
-
+/* 
 .btn-branding-unvalid {
   background-color: rgba(186, 186, 186, 0.3);
   border-radius: 4px;
@@ -74,4 +69,4 @@ body {
   background-color: rgba(186, 186, 186, 0.3);
   color: white;
   
-}
+} */

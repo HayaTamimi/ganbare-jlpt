@@ -14,7 +14,7 @@ export default function Main() {
             help you pass but only if you did your best ✨
           </h1>
           <div>
-            <Link to="/quiz/levels" className="btn-branding">
+            <Link to="/quizzes" className="btn-branding">
               Take Quiz
             </Link>
           </div>
