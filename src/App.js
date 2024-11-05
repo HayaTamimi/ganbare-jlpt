@@ -12,7 +12,8 @@ import Dictionary from "./pages/Dictionary";
 import UserRegister from "./components/user/UserRegister";
 import UserLogin from "./components/user/UserLogin";
 import UserProfile from "./components/user/UserProfile";
-import ProtectedRoute from "./components/user/ProtectedRoute"
+import ProtectedRoute from "./components/user/ProtectedRoute";
+import Dashboard from "./components/dashboard/Dashboard";
 
 export default function App() {
   //let apiUrl = "http://localhost:5171/";
@@ -80,7 +81,7 @@ export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <LayOut />,
+      element: <LayOut isAuthenticated={isAuthenticated} />,
       children: [
         {
           path: "/about",
@@ -121,6 +122,16 @@ export default function App() {
                   getUserData={getUserData}
                 />
               }
+            />
+          ),
+        },
+        {
+          path: "/dashboard",
+          element: (
+            <ProtectedRoute
+              isUserDataLoading={isUserDataLoading}
+              isAuthenticated={isAuthenticated}
+              element={<Dashboard />}
             />
           ),
         },

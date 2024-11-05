@@ -3,12 +3,13 @@ import NavBootstrap from "../navbar/NavBootsrap";
 //import Footer from "../footer/Footer";
 import { Outlet } from "react-router-dom";
 
-export default function LayOut() {
+export default function LayOut(props) {
+  const { isAuthenticated } = props;
   return (
     <div>
-      <NavBootstrap />
-      <Outlet/>
-     {/* <Footer /> */}
+      <NavBootstrap isAuthenticated={isAuthenticated} />
+      <Outlet />
+      {/* <Footer /> */}
     </div>
   );
 }
