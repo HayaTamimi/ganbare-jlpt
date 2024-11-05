@@ -3,12 +3,16 @@ import axios from "axios";
 import "./UserProfile.css";
 
 export default function UserProfile(props) {
-  const { userData, setUserData } = props;
+  const {
+    userData, setUserData} = props;
+
+  console.log(userData, "userData from profile");
+
   const [newUsername, setNewUsername] = useState("");
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
-    setIsOpen(!isOpen); 
+    setIsOpen(!isOpen);
   };
 
   const updateUserProfile = () => {
@@ -16,7 +20,7 @@ export default function UserProfile(props) {
 
     axios
       .patch(
-        `http://localhost:5171/api/v1/users/${userData.id}`,
+        `http://localhost:5171/api/v1/users/${userData.userId}`,
         {
           username: newUsername,
         },
@@ -45,7 +49,7 @@ export default function UserProfile(props) {
         Let's try our best to achieve our goals!
       </h2>
       <div className="user-edit">
-        <button onClick={handleClick}>Edit</button>
+        <button onClick={handleClick}>Change Username</button>
         <button onClick={logOutHandler}>Log out</button>
 
         {isOpen && ( 
