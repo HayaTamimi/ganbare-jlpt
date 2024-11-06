@@ -40,12 +40,15 @@ export default function UserProfile(props) {
     setUserData(null);
   };
 
+
+  console.log(userData)
   return (
     <div className="user-profile">
       <h2 className="hello">
         Glad to have you here, {userData.username} 🇯🇵✨
         <br />
         Let's try our best to achieve our goals!
+        
       </h2>
       <div className="user-edit">
         <button className="user-btn" onClick={logOutHandler}>

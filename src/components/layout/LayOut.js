@@ -4,10 +4,10 @@ import NavBootstrap from "../navbar/NavBootsrap";
 import { Outlet } from "react-router-dom";
 
 export default function LayOut(props) {
-  const { isAuthenticated } = props;
+  const { isAuthenticated, userData } = props;
   return (
     <div>
-      <NavBootstrap isAuthenticated={isAuthenticated} />
+      <NavBootstrap userData={userData} isAuthenticated={isAuthenticated} />
       <Outlet />
       {/* <Footer /> */}
     </div>

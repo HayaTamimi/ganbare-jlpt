@@ -15,6 +15,7 @@ import UserProfile from "./components/user/UserProfile";
 import ProtectedRoute from "./components/user/ProtectedRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Quiz from "./components/quiz/Quiz";
+import QuestionsDashboard from "./components/dashboard/QuestionsDashboard";
 
 
 export default function App() {
@@ -81,10 +82,13 @@ export default function App() {
     return <div> {error.message}</div>;
   }
 
+  ///let shouldCheckAdmin = true; <- other way 
+  // then between {put shouldCheckAdmin instead of true}
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <LayOut isAuthenticated={isAuthenticated} />,
+      element: <LayOut isAuthenticated={isAuthenticated} userData={userData} />,
       children: [
         {
           path: "/about",
@@ -93,7 +97,7 @@ export default function App() {
 
         {
           path: "/quizzes",
-          element: <LevelPage response={response}  />,
+          element: <LevelPage response={response} />,
         },
         {
           path: "/quizzes/:quizId",
@@ -141,7 +145,21 @@ export default function App() {
             <ProtectedRoute
               isUserDataLoading={isUserDataLoading}
               isAuthenticated={isAuthenticated}
+              shouldCheckAdmin={true} //check above
+              userData={userData}
               element={<Dashboard />}
+            />
+          ),
+        },
+        {
+          path: "/questions-dashboard",
+          element: (
+            <ProtectedRoute
+              isUserDataLoading={isUserDataLoading}
+              isAuthenticated={isAuthenticated}
+              shouldCheckAdmin={true} //check above
+              userData={userData}
+              element={<QuestionsDashboard />}
             />
           ),
         },

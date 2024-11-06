@@ -6,7 +6,7 @@ import "./NavBootstrap.css";
  
 
 export default function NavBootstrap(props) {
-  const { isAuthenticated } = props;
+  const { isAuthenticated, userData } = props;
 
   return (
     <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "white" }}>
@@ -42,7 +42,7 @@ export default function NavBootstrap(props) {
                   Login
                 </Nav.Link>
               )}
-              {isAuthenticated ? (
+              {isAuthenticated && userData.role === "Admin" ? (
                 <Nav.Link style={{ color: "##595959" }} href="/dashboard">
                   Dashboard
                 </Nav.Link>
