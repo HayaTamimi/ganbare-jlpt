@@ -39,7 +39,7 @@ export default function Questionsboard() {
   console.log(questionResponse);
   
 return (
-  <div className="container-fluid">
+  <div className="container-fluid q-dashboard">
     <h2 className="dashboard-title"> Question Dashboard </h2>
     {questionResponse.map((question) => (
       <div className="part" key={question.questionId}>

@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Quiz.css";
 import axios from "axios";
 import Result from "../result/Result";
+import { useParams } from "react-router-dom";
+
 
 export default function Quiz() {
-  const urlQuestions = "http://localhost:5171/api/v1/questions";
+
+  const urlQuestions = "https://5171/api/v1/questions/";
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -25,6 +28,7 @@ export default function Quiz() {
 
     fetchData();
   }, []);
+
 
   if (isLoading) {
     return <div className="load"></div>;

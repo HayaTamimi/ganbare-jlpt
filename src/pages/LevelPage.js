@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./LevelPage.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function LevelPage(props) {
   const [quizzes, setQuizzes] = useState([]);
@@ -54,15 +55,13 @@ export default function LevelPage(props) {
               </button>
             </div>
             <div className="filtered-questions">
-              <h2>
-                {selectedLevel
-                  ? `Level ${selectedLevel} Quizzes`
-                  : ""}
-              </h2>
+              <h2>{selectedLevel ? `Level ${selectedLevel} Quizzes` : ""}</h2>
               <div className="filtered-quizzes">
                 {filteredQuizzes.map((quiz) => (
                   <div key={quiz.quizId}>
-                    <p>This Quiz from level: {quiz.level}</p>
+                    <Link to="/questions/quizId">
+                      This Quiz from level: {quiz.level}
+                    </Link>
                   </div>
                 ))}
               </div>

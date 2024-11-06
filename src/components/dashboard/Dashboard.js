@@ -6,7 +6,7 @@ export default function Dashboard() {
   return (
     <div>
       <div>
-        <h2> Dashboard</h2>
+        <h2 > Main Admin Page</h2>
         {/* <UserDashboard /> */}
         {/* <QuizzesDashboard /> */}
         {/* <OptionsDashboard /> */}

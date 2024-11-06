@@ -94,21 +94,17 @@ export default function App() {
           path: "/about",
           element: <About />,
         },
-
+        {
+          path: "/questions/:quizId",
+          element: <Quiz />,
+        },
         {
           path: "/quizzes",
-          element: <LevelPage
-         //   response={response}
-          />,
+          element: (
+            <LevelPage
+            />
+          ),
         },
-        {
-          path: "/quizzes/:quizId",
-          element: <Quiz response={response} setResponse={setResponse} />,
-        },
-        // {
-        //   path: "/quizzes?level",
-        //   element: <Quiz response={response} setResponse={setResponse} />,
-        // },
         {
           path: "/",
           element: <Homepage />,
