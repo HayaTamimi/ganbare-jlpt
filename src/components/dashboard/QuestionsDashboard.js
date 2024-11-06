@@ -19,6 +19,8 @@ export default function Questionsboard() {
 
   function fetchData() {
     let url = "http://localhost:5171/api/v1/questions";
+
+    console.log(url);
     axios
       .get(url)
       .then((response) => {
@@ -37,47 +39,47 @@ export default function Questionsboard() {
 
   console.log(questionResponse);
 
-//   const [anchorEl, setAnchorEl] = React.useState(null);
-//   const handleClick = (event) => {
-//     setAnchorEl(event.currentTarget);
-//   };
-//   const handleClose = () => {
-//     setAnchorEl(null);
-//   };
-//   const open = Boolean(anchorEl);
-//   const id = open ? "simple-popover" : undefined;
+  //   const [anchorEl, setAnchorEl] = React.useState(null);
+  //   const handleClick = (event) => {
+  //     setAnchorEl(event.currentTarget);
+  //   };
+  //   const handleClose = () => {
+  //     setAnchorEl(null);
+  //   };
+  //   const open = Boolean(anchorEl);
+  //   const id = open ? "simple-popover" : undefined;
 
-//   const [optionList, setOptionList] = useState([]);
+  //   const [optionList, setOptionList] = useState([]);
 
-//   function fetchOption() {
-//     let url = "http://localhost:5171/api/v1/options";
-//     axios
-//       .get(url)
-//       .then((response) => {
-//         setOptionList(response.data);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   }
+  //   function fetchOption() {
+  //     let url = "http://localhost:5171/api/v1/options";
+  //     axios
+  //       .get(url)
+  //       .then((response) => {
+  //         setOptionList(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }
 
-//   useEffect(() => {
-//     fetchOption();
-//   }, []);
+  //   useEffect(() => {
+  //     fetchOption();
+  //   }, []);
 
-//   const [questionInfo, setQuestionInfo] = useState({
-//     questionText: "",
-//     anwser: "",
-//     optionId: "",
-//   });
-//   function onChangeHandler(event) {
-//     console.log(event, "event");
-//     setQuestionInfo({
-//       ...questionInfo,
-//       [event.target.id]: event.target.value,
-//       [event.target.questionText]: event.target.value,
-//     });
-//   }
+  //   const [questionInfo, setQuestionInfo] = useState({
+  //     questionText: "",
+  //     anwser: "",
+  //     optionId: "",
+  //   });
+  //   function onChangeHandler(event) {
+  //     console.log(event, "event");
+  //     setQuestionInfo({
+  //       ...questionInfo,
+  //       [event.target.id]: event.target.value,
+  //       [event.target.questionText]: event.target.value,
+  //     });
+  //   }
 
   if (loading) {
     return <div> </div>;
@@ -89,25 +91,25 @@ export default function Questionsboard() {
 
   //console.log(questionInfo, "info");
 
-//   function createQuestion() {
-//     const token = localStorage.getItem("token");
-//     const url = "http://localhost:5171/api/v1/questions";
-//     // send
-//     axios
-//       .post(url, questionInfo, {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       })
-//       .then((res) => {
-//         console.log(res);
-//         if (res.status === 200) {
-//           alert("Question is created successfully ");
-//           fetchData();
-//         }
-//       })
-//       .catch((error) => console.log(error));
-//   }
+  //   function createQuestion() {
+  //     const token = localStorage.getItem("token");
+  //     const url = "http://localhost:5171/api/v1/questions";
+  //     // send
+  //     axios
+  //       .post(url, questionInfo, {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       })
+  //       .then((res) => {
+  //         console.log(res);
+  //         if (res.status === 200) {
+  //           alert("Question is created successfully ");
+  //           fetchData();
+  //         }
+  //       })
+  //       .catch((error) => console.log(error));
+  //   }
   return (
     <div>
       <h1> Question Dashboard </h1>

@@ -97,7 +97,9 @@ export default function App() {
 
         {
           path: "/quizzes",
-          element: <LevelPage response={response} />,
+          element: <LevelPage
+         //   response={response}
+          />,
         },
         {
           path: "/quizzes/:quizId",

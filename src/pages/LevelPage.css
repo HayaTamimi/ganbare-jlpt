@@ -17,9 +17,17 @@ body {
   );
 }
 
-.continer h3 {
+.main h3 {
   font-family: var(--defult-font);
   font-size: 30px;
+  font-weight: 600;
+  color: #8e7f93;
+  margin-top: 20px;
+}
+
+.main h2 {
+  font-family: var(--defult-font);
+  font-size: 20px;
   font-weight: 600;
   color: #8e7f93;
   margin-top: 20px;
@@ -40,6 +48,7 @@ body {
   color: white;
   border: none;
   font-size: 18px;
+  padding: 5px 30px;
   line-height: 30px;
   text-decoration: none;
   transition: all 0.2s ease-out;

@@ -24,7 +24,7 @@ export default function NavBootstrap(props) {
               <Nav.Link style={{ color: "#gray" }} href="/about">
                 What is Ganbare?
               </Nav.Link>
-              <Nav.Link style={{ color: "##595959" }} href="/quiz/levels">
+              <Nav.Link style={{ color: "##595959" }} href="/quizzes">
                 Quiz
               </Nav.Link>
               <Nav.Link style={{ color: "##595959" }} href="/dictionary">
@@ -47,7 +47,7 @@ export default function NavBootstrap(props) {
                   Dashboard
                 </Nav.Link>
               ) : (
-               <p></p>
+                <p></p>
               )}
             </Nav>
           </Nav>

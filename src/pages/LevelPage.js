@@ -1,80 +1,73 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LevelPage.css";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import QuizTake from "../components/quiz/QuizTake"
-
+import axios from "axios";
 
 export default function LevelPage(props) {
+  const [quizzes, setQuizzes] = useState([]);
+  const [selectedLevel, setSelectedLevel] = useState(null); 
 
-  const { response, setResponse } = props;
-  
-    const navigate = useNavigate();
-
-    const handleLevelSelect = (level) => {
-      navigate(`/quizzes/?level=${level}`);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5171/api/v1/quizzes"
+        );
+        setQuizzes(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
-  
+
+    fetchData();
+  }, []);
+
+  const handleLevelClick = (level) => {
+    setSelectedLevel(level); 
+  };
+
+  const filteredQuizzes = quizzes.filter(
+    (quiz) => !selectedLevel || quiz.level === selectedLevel 
+  );
+
   return (
-    <div className="continer">
+    <div className="container-fluid">
       <div className="main">
         <div className="hero">
-          <h3 >Choose Your Level ✨</h3>
-          <p className="mb-5">Only level N5 & N4 available now </p>
+          <h3>Choose Your Level ✨</h3>
+          <p className="mb-5">Only level N5 & N4 are available now</p>
 
           <div className="row d-flex justify-content-between">
             <div className="col-sm-5">
-              <div
+              <button
                 className="btn-branding-easy"
-                response={response}
-                setResponse={setResponse}
-                onClick={() => handleLevelSelect("N5")}
+                onClick={() => handleLevelClick("N5")}
               >
                 N5
-              </div>
+              </button>
             </div>
             <div className="col-sm-5 ">
-              <div
+              <button
                 className="btn-branding-easy"
-                response={response}
-                setResponse={setResponse}
-                onClick={() => handleLevelSelect("N4")}
+                onClick={() => handleLevelClick("N4")}
               >
                 N4
+              </button>
+            </div>
+            <div className="filtered-questions">
+              <h2>
+                {selectedLevel
+                  ? `Level ${selectedLevel} Quizzes`
+                  : ""}
+              </h2>
+              <div className="filtered-quizzes">
+                {filteredQuizzes.map((quiz) => (
+                  <div key={quiz.quizId}>
+                    <p>This Quiz from level: {quiz.level}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            {/* <div className="col-sm-2">
-              <Link
-                to="#"
-                className="btn-branding-unvalid"
-                response={response}
-                setResponse={setResponse}
-              >
-                N3
-              </Link>
-            </div>
-            <div className="col-sm-2">
-              <Link
-                to="#"
-                className="btn-branding-unvalid"
-                response={response}
-                setResponse={setResponse}
-              >
-                N2
-              </Link>
-            </div>
-            <div className="col-sm-3">
-              <Link
-                to="#"
-                className="btn-branding-unvalid"
-                response={response}
-                setResponse={setResponse}
-              >
-                N1
-              </Link>
-            </div> */}
           </div>
-          <QuizTake response={response} />
         </div>
       </div>
     </div>
