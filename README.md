@@ -1,48 +1,53 @@
-# Project: Frontend for E-commerce Website
+# Japanese Quiz Web App - Ganbare 🇯🇵
 
-This project is a frontend for an e-commerce website, developed using modern web technologies. It provides an interactive platform for users to browse and purchase products, while also offering a management dashboard for administrators to handle products, users, and orders. The project is built with a focus on a smooth and intuitive user experience, with added functionalities for searching, filtering, and managing products.
+## Project Overview
+A Quiz web app to prepare you for JLPT which stands for Japanese Language Proficiency Test (which is similar to TOEFL but focuses on the Japanese Language). This fullstack project was built with .Net 8 and React JS.
 
-***Deadline: 14/11/2024***
+## Features ✨
+- **User Management**:
+  - Register new user (Sign Up)
+  - Sign In
+  - User authentication with JWT token
+  - User Password is hashed upon registering
+  - Update user info
+  - Delete User
 
-### Level 1: Basic Requirements
+  //  add more later
 
-**Pages to Create:**
 
-1. Home page
-2. Product page(list all the products)
-3. Product Detail(contain the details of a product)
-4. Dashboard page
+## Technologies Used
 
-**Functionalities for a Visitor:**
+### Back End
 
-- Get list of products
-- Search products by name
-- Filter products price
-- Add products to a cart
-- Remove products from a cart
+- **.Net 8**: Web API Framework
+- **Entity Framework Core**: ORM for database interactions
+- **PostgreSQl**: Relational database for storing data
+- **JWT**: For user authentication and authorization
+- **AutoMapper**: For object mapping
+- **Swagger**: API documentation
 
-**Functionalities for an Admin:**
+### Front End 
+- **React Js**: Javascript Framework
+- **Bootstrap**: CSS framework
+- **Axios**: 
+// add more later
 
-- Add a new product, update info of a product, remove a product
+## Prerequisites
 
-### Level 2: Additional Requirements
+- .Net 8 SDK
+- SQL Server
+- VSCode
 
-**Authentication:**
 
-- Implement register and login functionality via email and password
-- Protect the routes based on login and admin status
+## Demo 💻
+// add vid 
 
-**Functionalities for an Admin:**
+## Origin of the Name
+Ganbare （がんばれ）　is a Japanese word that mean "Do Your Best" // add more later
 
-- list all users, delete a user.
-- list all orders
+## Future Plans
 
-### Level 3: Bonus Requirement (Optional)
 
-- Messages, show loading, success, and error messages (e.g., when loading products list or adding new product)
-- Implement pagination feature
-- Create a Profile Page (only available if user logs in), implement editing user profile feature (user can change first name, last name)
+## License
 
-`Please note that the bonus requirements and reviews are optional and can be completed if you have additional time and advanced skills.`
-
-Happy coding!
+This project is licensed under the MIT License.
