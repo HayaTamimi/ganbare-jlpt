@@ -59,7 +59,7 @@ export default function LevelPage(props) {
               <div className="filtered-quizzes">
                 {filteredQuizzes.map((quiz) => (
                   <div key={quiz.quizId}>
-                    <Link to="/questions/quizId">
+                    <Link to={`/quizzes/${quiz.quizId}`}>
                       This Quiz from level: {quiz.level}
                     </Link>
                   </div>

@@ -14,8 +14,8 @@ import UserLogin from "./components/user/UserLogin";
 import UserProfile from "./components/user/UserProfile";
 import ProtectedRoute from "./components/user/ProtectedRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import Quiz from "./components/quiz/Quiz";
 import QuestionsDashboard from "./components/dashboard/QuestionsDashboard";
+import QuizPage from "./pages/QuizPage";
 
 
 export default function App() {
@@ -95,8 +95,8 @@ export default function App() {
           element: <About />,
         },
         {
-          path: "/questions/:quizId",
-          element: <Quiz />,
+          path: "/quizzes/:quizId",
+          element: <QuizPage />,
         },
         {
           path: "/quizzes",

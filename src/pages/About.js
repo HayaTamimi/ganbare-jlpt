@@ -10,7 +10,6 @@ export default function About() {
       <div>
         <p className="about"> testing page for now</p>
       </div>
-      <Quiz/>
     </div>
   );
 }

@@ -2,22 +2,26 @@ import React, { useState } from 'react'
 
 export default function Result(props) {
 const {score} = props
-  const [result, setResult] = useState(0)(
-    {
-      result: "",
-      speed: "",
-    } // what else info I need?
-)
-
+//   const [result, setResult] = useState(0)(
+//     {
+//       result: "",
+//       speed: "",
+//     } // what else info I need?
+// )
+  // function noNameYet (event){
+//   const { name, value, type } = event.target
+  
+  
+// }}
   return (
     <div className='resultCon'>
       <div className="score">
         <h4>
                   Your Score: {score}/10
         </h4>
-        {/* <button className="rest" onClick={() => window.location.reload()}>
+        <button className="rest" onClick={() => window.location.reload()}>
           Restart
-        </button> */}
+        </button>
       </div>
     </div>
   );
