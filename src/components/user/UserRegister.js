@@ -56,7 +56,6 @@ export default function UserRegister() {
   // will delete later
   //password: 123456789Aa*
   //email: "dgsgs@hotmail.com";
-  //userId: "ffada2e4-7466-489d-94d4-081b41562b2a";
   //username: "Hayass";
 
   return (

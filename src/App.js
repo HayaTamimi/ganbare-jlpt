@@ -14,7 +14,7 @@ import UserLogin from "./components/user/UserLogin";
 import UserProfile from "./components/user/UserProfile";
 import ProtectedRoute from "./components/user/ProtectedRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import QuestionsDashboard from "./components/dashboard/QuestionsDashboard";
+import QuizDash from "./pages/QuizDash";
 import QuizPage from "./pages/QuizPage";
 
 
@@ -100,10 +100,7 @@ export default function App() {
         },
         {
           path: "/quizzes",
-          element: (
-            <LevelPage
-            />
-          ),
+          element: <LevelPage />,
         },
         {
           path: "/",
@@ -150,14 +147,14 @@ export default function App() {
           ),
         },
         {
-          path: "/questions-dashboard",
+          path: "/quizzes-dashboard",
           element: (
             <ProtectedRoute
               isUserDataLoading={isUserDataLoading}
               isAuthenticated={isAuthenticated}
               shouldCheckAdmin={true} //check above
               userData={userData}
-              element={<QuestionsDashboard />}
+              element={<QuizDash />}
             />
           ),
         },

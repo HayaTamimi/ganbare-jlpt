@@ -1,22 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import QuestionsDashboard from "./QuestionsDashboard";
+import "./Dashboard.css";
 
 export default function Dashboard() {
   return (
-    <div>
-      <div>
-        <h2 > Main Admin Page</h2>
-        {/* <UserDashboard /> */}
-        {/* <QuizzesDashboard /> */}
-        {/* <OptionsDashboard /> */}
-
-        <QuestionsDashboard />
-
-        <Link to="/users-dashboard"> Users</Link>
-        <Link to="/quizzes-dashboard"> Quizzes</Link>
-        <Link to="/questions-dashboard"> Questions</Link>
-        <Link to="/options-dashboard"> Options</Link>
+    <div className="container">
+      <div className="dashboard">
+        <h3> Main Admin Page</h3>
+        <div className="link-dashboard">
+          <Link className="user-link" to="/users-dashboard">
+            User Dashboard
+          </Link>
+          <br />
+          <Link className="quiz-link" to="/quizzes-dashboard">
+            Quiz Dashboard
+          </Link>
+        </div>
       </div>
     </div>
   );

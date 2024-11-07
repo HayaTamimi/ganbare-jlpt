@@ -1,0 +1,63 @@
+:root {
+  --btn-color: #e8dbee;
+  --paragraph-color: #8e7f93;
+  --backround-color: #f7f7f7;
+  --defult-font: "Lato", sans-serif;
+  --japanese-font: "Cherry Bomb One", system-ui;
+}
+
+body {
+  font-family: var(--defult-font);
+  background-color: var(--backround-color);
+  background-attachment: fixed;
+  background-image: linear-gradient(
+    133deg,
+    rgba(254, 74, 75, 0.15) 5%,
+    rgba(253, 157, 166, 0.15) 35%,
+    rgba(106, 0, 206, 0.15)
+  );
+}
+
+.dashboard {
+  background-color: white;
+  border: 80px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 90px auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.dashboard h3 {
+  font-family: var(--defult-font);
+  font-weight: 500;
+  margin-bottom: 50px;
+  font-size: 30px;
+  color: #8e7f93;
+}
+
+.link-dashboard {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-link,
+.quiz-link {
+  background-color: var(--btn-color);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  font-size: 18px;
+  line-height: 27px;
+  margin-bottom: 50px;
+  padding: 15px 30px;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+.user-link:hover,
+.quiz-link:hover {
+  background-color: plum;
+  color: white;
+}
