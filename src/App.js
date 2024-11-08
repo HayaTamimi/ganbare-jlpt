@@ -16,6 +16,7 @@ import ProtectedRoute from "./components/user/ProtectedRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import QuizDash from "./pages/QuizDash";
 import QuizPage from "./pages/QuizPage";
+import Leaderboard from "./pages/Leaderboard";
 
 
 export default function App() {
@@ -101,6 +102,10 @@ export default function App() {
         {
           path: "/quizzes",
           element: <LevelPage />,
+        },
+        {
+          path: "/leaderboard",
+          element: <Leaderboard />,
         },
         {
           path: "/",

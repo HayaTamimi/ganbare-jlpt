@@ -1,0 +1,27 @@
+.rank {
+  color: gray;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Lato", sans-serif;
+  margin: 30px auto;
+  padding: 10px 60px;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #e8dbee;
+  color: white;
+}

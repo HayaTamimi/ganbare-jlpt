@@ -1,9 +1,10 @@
 import React from 'react'
+import LeaderboardCo from "../components/result/LeaderboardCo"
 
-function Leaderboard() {
+export default function Leaderboard() {
   return (
-    <div>Leaderboard</div>
-  )
+    <div>
+      <LeaderboardCo />
+    </div>
+  );
 }
-
-export default Leaderboard

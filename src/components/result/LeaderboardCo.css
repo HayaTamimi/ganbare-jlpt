@@ -1,0 +1,45 @@
+:root {
+  --btn-color: #e8dbee;
+  --paragraph-color: #8e7f93;
+  --backround-color: #f7f7f7;
+}
+
+.leaderboard-co {
+  text-align: center;
+  margin-top: 50px;
+  font-family: "Lato", sans-serif;
+  background-color: white;
+  border: 80px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 90px auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.leaderboard-co h2 {
+  color: plum;
+  font-weight: 800;
+  padding-bottom: 40px;
+}
+
+.time { 
+  display: flex;
+  justify-content: space-around;
+}
+.time-btn {
+  background-color: var(--btn-color);
+  border-radius: 4px;
+  font-weight: 700;
+  color: white;
+  border: none;
+  font-size: 14px;
+  padding: 4px 25px;
+  line-height: 20px;
+  transition: all 0.2s ease-out;
+}
+
+.time-btn:hover {
+  background-color: plum;
+  color: white;
+}
