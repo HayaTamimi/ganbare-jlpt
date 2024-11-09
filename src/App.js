@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 import Homepage from "../src/pages/Homepage";
 import NotFound from "../src/pages/NotFound";
@@ -76,7 +76,12 @@ export default function App() {
   let isAuthenticated = userData ? true : false;
 
   if (load) {
-    return <div> </div>;
+    return (
+      <div>
+        {" "}
+        <ClipLoader color="rgba(255, 255, 255, 1)" />
+      </div>
+    );
   }
 
   if (error) {

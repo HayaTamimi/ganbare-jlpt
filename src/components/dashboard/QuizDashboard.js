@@ -1,27 +1,3 @@
-
-
-//   console.log(questionResponse);
-
-//   return (
-//     <div className="container-fluid q-dashboard">
-//       <h2 className="dashboard-title"> Question Dashboard </h2>
-//       {questionResponse.map((question) => (
-//         <div className="part" key={question.questionId}>
-//           <h4 className="q-text">Q:{question.questionText}</h4>
-//           <h4 className="q-ans">Correct Answer: {question.answer}</h4>
-//           <h4 className="q-ops">
-//             {question.options.map((option) => (
-//               <div key={option.optionId}>
-//                 <h4 className="q-ops">Options: {option.choice}</h4>
-//               </div>
-//             ))}
-//           </h4>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
-
 import React, { useState, useEffect } from "react";
 import "./QuizDashboard.css";
 import axios from "axios";
@@ -34,7 +10,7 @@ import {
   FormControl,
   Select,
 } from "@mui/material";
-import CreateItem from "./CreateItem"; // Assuming CreateItem component exists
+import CreateItem from "./CreateItem"; 
 
 export default function QuizDashboard() {
   const [quizzes, setQuizzes] = useState([]);

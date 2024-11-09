@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function ProtectedRoute(props) {
   const {
@@ -11,7 +12,12 @@ export default function ProtectedRoute(props) {
   } = props;
 
   if (isUserDataLoading) {
-    return <div></div>;
+    return (
+      <div>
+        {" "}
+        <ClipLoader color="rgba(255, 255, 255, 1)" />
+      </div>
+    );
   }
 
   if (shouldCheckAdmin) {

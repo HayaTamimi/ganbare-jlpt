@@ -3,6 +3,8 @@ import "./Quiz.css";
 import axios from "axios";
 import Result from "../result/Result";
 import { useParams } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 export default function Quiz() {
   const { quizId } = useParams();
@@ -32,7 +34,11 @@ export default function Quiz() {
   }, [quizId]);
 
   if (isLoading) {
-    return <div className="load"></div>;
+    return (
+      <div className="load">
+        <ClipLoader color="rgba(255, 255, 255, 1)" />
+      </div>
+    );
   }
 
   if (error) {
