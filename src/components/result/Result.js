@@ -4,12 +4,17 @@ import axios from "axios";
 export default function Result(props) {
   const { score, userData } = props;
 
-  const userId = userData.userId ;
+  const userId = userData?.userId; 
+
+  const [isLoading, setIsLoading] = useState(false); 
+  const [error, setError] = useState(null);  
 
   const saveResult = async (score, token, userId) => {
+    setIsLoading(true); 
+    setError(null); 
     try {
       const response = await axios.put(
-        `http://localhost:5171/api/v1/quizzes/${userId}`,
+        `http://localhost:5171/api/v1/users/${userId}`,
         {
           score,
           userId,
@@ -22,8 +27,11 @@ export default function Result(props) {
       );
 
       console.log("Quiz result saved successfully:", response.data);
+      setIsLoading(false); 
     } catch (error) {
       console.error("Error saving quiz result:", error);
+      setIsLoading(false); 
+      setError(error.message || "An error occurred while saving the result.");
     }
   };
 
@@ -34,14 +42,10 @@ export default function Result(props) {
     }
   }, [score, userId]);
 
-
   return (
     <div className="resultCon">
       <div className="score">
         <h4>Your Score: {score}/10</h4>
-        {/* <button className="rest" onClick={() => window.location.reload()}>
-          Rest
-        </button> */}
       </div>
     </div>
   );

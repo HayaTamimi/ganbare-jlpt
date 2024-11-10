@@ -17,6 +17,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import QuizDash from "./pages/QuizDash";
 import QuizPage from "./pages/QuizPage";
 import Leaderboard from "./pages/Leaderboard";
+import UserDashBoard from "./components/dashboard/UserDashboard";
 
 
 export default function App() {
@@ -119,7 +120,7 @@ export default function App() {
               // score={score}
               // setScore={setScore}
               setError={setError}
-              setLoad={setLoad}
+              //setLoad={setLoad}
             />
           ),
         },
@@ -176,6 +177,18 @@ export default function App() {
               shouldCheckAdmin={true} //check above
               userData={userData}
               element={<QuizDash />}
+            />
+          ),
+        },
+        {
+          path: "/users-dashboard",
+          element: (
+            <ProtectedRoute
+              isUserDataLoading={isUserDataLoading}
+              isAuthenticated={isAuthenticated}
+              shouldCheckAdmin={true}
+              userData={userData}
+              element={<UserDashBoard />}
             />
           ),
         },

@@ -1,9 +1,7 @@
 :root {
-  --btn-color: #e8dbee;
   --paragraph-color: #8e7f93;
   --backround-color: #f7f7f7;
   --defult-font: "Lato", sans-serif;
-  --japanese-font: "Cherry Bomb One", system-ui;
 }
 
 body {
@@ -29,7 +27,7 @@ body {
 }
 
 .dashboard h3 {
-  font-family: var(--defult-font);
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   margin-bottom: 50px;
   font-size: 30px;
@@ -44,7 +42,7 @@ body {
 
 .user-link,
 .quiz-link {
-  background-color: var(--btn-color);
+  background-color:  #e8dbee;
   border-radius: 4px;
   color: white;
   border: none;

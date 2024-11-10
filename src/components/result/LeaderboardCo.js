@@ -3,7 +3,7 @@ import "./LeaderboardCo.css";
 import Rank from "./Rank";
 
 export default function LeaderboardCo(props) {
-  const { setError, setLoad } = props;
+  const { setError } = props;
 
 
   return (
@@ -34,7 +34,6 @@ export default function LeaderboardCo(props) {
           // score={score}
           // setScore={setScore}
           setError={setError}
-          setLoad={setLoad}
         />
       </div>
     </div>

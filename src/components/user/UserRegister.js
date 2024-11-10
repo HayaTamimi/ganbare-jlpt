@@ -52,12 +52,7 @@ export default function UserRegister() {
         }
       });
   }
-
-  // will delete later
-  //password: 123456789Aa*
-  //email: "dgsgs@hotmail.com";
-  //username: "Hayass";
-
+  
   return (
     <div className="container">
       <div className="user-register">

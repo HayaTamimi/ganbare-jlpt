@@ -5,9 +5,15 @@ import Result from "../result/Result";
 import { useParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 
-
 export default function Quiz(props) {
-    const { score, setScore, userData, setUserData, getUserData } = props;
+  const {
+    score,
+    setScore,
+    userData,
+    setUserData,
+    getUserData,
+    onQuizCompletion
+  } = props;
 
   const { quizId } = useParams();
 
@@ -16,14 +22,12 @@ export default function Quiz(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  //const [score, setScore] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(urlquiz);
         const quizQuestions = response.data.questions;
-        console.log(response.data.questions[1]);
         setQuestions(quizQuestions);
         setIsLoading(false);
       } catch (error) {
@@ -54,6 +58,9 @@ export default function Quiz(props) {
 
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
+    } else {
+      // Call onQuizCompletion() when the last answer is submitted
+      onQuizCompletion();
     }
   };
 
@@ -84,7 +91,6 @@ export default function Quiz(props) {
         <Result
           score={score}
           userData={userData}
-    
         />
       )}
     </div>

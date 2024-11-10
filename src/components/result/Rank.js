@@ -3,38 +3,43 @@ import "./Rank.css";
 import axios from "axios";
 
 export default function Rank(props) {
-  const { setError, setLoad } = props;
+  const { setError } = props;
 
-  const [results, setResults] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
+        const resultsResponse = await axios.get(
           "http://localhost:5171/api/v1/results"
         );
+        const usernamesResponse = await axios.get(
+          "http://localhost:5171/api/v1/users"
+        );
 
-        const sortedResults = response.data.sort(
+        const sortedResults = resultsResponse.data.sort(
           (a, b) => b.totalScore - a.totalScore
         );
 
-        sortedResults.forEach((result, index) => {
-          result.rank = index + 1;
-        });
+        const combinedData = sortedResults.map((result, index) => ({
+          ...result,
+          rank: index + 1,
+          username:
+            usernamesResponse.data.find((user) => user.userId === result.userId)
+              ?.username || "Unknown User",
+        }));
 
-        setResults(sortedResults);
+        setData(combinedData);
       } catch (error) {
         setError("Error fetching data. Please try again later.");
         console.error("Error fetching data:", error);
       } finally {
-        setLoad(false);
       }
     };
 
     fetchData();
   }, []);
 
-  console.log(results)
   return (
     <div className="container-fulid">
       <div className="rank">
@@ -47,10 +52,10 @@ export default function Rank(props) {
             </tr>
           </thead>
           <tbody>
-            {results.map((result) => (
+            {data.map((result) => (
               <tr key={result.resultId}>
                 <td>{result.rank}</td>
-                <td>{result.userId}</td>
+                <td>{result.username}</td>
                 <td>{result.totalScore}</td>
               </tr>
             ))}

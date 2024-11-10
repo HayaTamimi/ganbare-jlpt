@@ -1,9 +1,6 @@
 :root {
-  --btn-color: #e8dbee;
-  --paragraph-color: #8e7f93;
   --backround-color: #f7f7f7;
   --defult-font: "Lato", sans-serif;
-  --japanese-font: "Cherry Bomb One", system-ui;
 }
 
 body {
@@ -19,7 +16,7 @@ body {
 }
 
 .ganbare {
-  font-family: var(--japanese-font);
+  font-family: "Cherry Bomb One", system-ui;
   font-style: normal;
   font-size: 50px;
   color: plum;
@@ -51,7 +48,7 @@ body {
 }
 
 .btn-branding {
-  background-color: var(--btn-color);
+  background-color: #e8dbee;
   border-radius: 4px;
   color: white;
   border: none;

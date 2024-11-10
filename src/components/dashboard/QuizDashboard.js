@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./QuizDashboard.css";
 import axios from "axios";
 import {
   Button,
@@ -10,7 +9,8 @@ import {
   FormControl,
   Select,
 } from "@mui/material";
-import CreateItem from "./CreateItem"; 
+import CreateItem from "./CreateItem";
+
 
 export default function QuizDashboard() {
   const [quizzes, setQuizzes] = useState([]);
@@ -27,57 +27,17 @@ export default function QuizDashboard() {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
-  const [options, setOptions] = useState([]);
-
-  const fetchQuizzes = () => {
-    const url = "http://localhost:5171/api/v1/quizzes";
-    axios
-      .get(url)
-      .then((response) => {
-        setQuizzes(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError("Failed to fetch quizzes");
-        setLoading(false);
-      });
-  };
-
-  const fetchOptions = () => {
-    const url = "http://localhost:5171/api/v1/options";
-    axios
-      .get(url)
-      .then((response) => {
-        setOptions(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    fetchQuizzes();
-    fetchOptions();
-  }, []);
-
   const [questionInfo, setQuestionInfo] = useState({
     questionText: "",
     answer: "",
     quizId: "",
-    options: [],
+    level: "", 
   });
 
   const handleChange = (event) => {
     setQuestionInfo({
       ...questionInfo,
       [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleOptionChange = (event) => {
-    setQuestionInfo({
-      ...questionInfo,
-      options: [...questionInfo.options, event.target.value],
     });
   };
 
@@ -95,7 +55,7 @@ export default function QuizDashboard() {
         console.log(res);
         if (res.status === 200) {
           alert("Question created successfully!");
-          fetchQuizzes();
+          fetchQuizzes(); // Call fetchQuizzes to update the list
         }
       })
       .catch((error) => {
@@ -103,6 +63,24 @@ export default function QuizDashboard() {
         alert("Failed to create question");
       });
   };
+
+  const fetchQuizzes = () => {
+    const url = "http://localhost:5171/api/v1/quizzes";
+    axios
+      .get(url)
+      .then((response) => {
+        setQuizzes(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError("Failed to fetch quizzes");
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchQuizzes();
+  }, []);
 
   return (
     <div>
@@ -137,22 +115,24 @@ export default function QuizDashboard() {
         />
         <br />
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Select Options</InputLabel>
+          <InputLabel id="demo-simple-select-label">Select Level</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            multiple
-            value={questionInfo.options}
-            onChange={handleOptionChange}
+            value={questionInfo.level}
+            onChange={(event) =>
+              setQuestionInfo({ ...questionInfo, level: event.target.value })
+            }
           >
-            {options.map((option) => (
-              <MenuItem key={option.id} value={option.id}>
-                {option.name}
-              </MenuItem>
-            ))}
+            <MenuItem key="n5" value="N5">
+              N5
+            </MenuItem>
+            <MenuItem key="n4" value="N4">
+              N4
+            </MenuItem>
           </Select>
         </FormControl>
-         <Button onClick={createItem}>Add Question</Button>
+        <Button onClick={createItem}>Add Question</Button>
       </Popover>
 
       <h1>List of Quizzes</h1>
@@ -164,4 +144,3 @@ export default function QuizDashboard() {
     </div>
   );
 }
-

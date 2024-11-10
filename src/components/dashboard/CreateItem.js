@@ -1,12 +1,13 @@
-import React from "react";
+import { Button } from "@mui/material";
 import axios from "axios";
+import React from "react";
 
-export default function CreateItem(props) {
-  const { quiz, fetchQuizzes } = props;
+export default function CreateItem(prop) {
+  const { quiz, fetchQuizzes } = prop;
 
   function deleteById() {
     const token = localStorage.getItem("token");
-    const url = `http://localhost:5171/api/v1/quizzes/${quiz.id}`;
+    const url = `http://localhost:5171/api/v1/questions/${quiz.id}`;
     axios
       .delete(url, {
         headers: {
@@ -16,17 +17,18 @@ export default function CreateItem(props) {
       .then((res) => {
         console.log(res);
         if (res.status === 204) {
-          alert("Quiz is deleted successfully!");
+          alert("a product is deleted successfully!");
           fetchQuizzes();
         }
       })
       .catch((error) => console.log(error));
   }
 
+  console.log(quiz);
   return (
     <div>
-      <p> {quiz.qestionText}</p>
-      <button onClick={deleteById}> Delete</button>
+      <p> {quiz.level}</p>
+      <Button onClick={deleteById}> Delete</Button>
     </div>
   );
 }

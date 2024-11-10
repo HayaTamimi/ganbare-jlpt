@@ -3,10 +3,10 @@ import LeaderboardCo from "../components/result/LeaderboardCo"
 
 export default function Leaderboard(props) {
 
-  const { setError, setLoad } = props;
+  const { setError } = props;
   return (
     <div>
-      <LeaderboardCo setError={setError} setLoad={setLoad} />
+      <LeaderboardCo setError={setError}/>
     </div>
   );
 }

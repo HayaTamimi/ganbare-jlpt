@@ -46,7 +46,7 @@
 
 }
 
-.rest {
+/* .rest {
   margin: auto;
   width: 120px;
   height: 30px;
@@ -63,7 +63,7 @@
 .rest:hover {
   background-color: plum;
   color: white;
-}
+} */
 
 .quiz .pages {
   margin: auto;

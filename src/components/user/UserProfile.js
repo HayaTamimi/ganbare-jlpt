@@ -48,7 +48,6 @@ export default function UserProfile(props) {
         Glad to have you here, {userData.username} 🇯🇵✨
         <br />
         Let's try our best to achieve our goals!
-        
       </h2>
       <div className="user-edit">
         <button className="user-btn" onClick={logOutHandler}>

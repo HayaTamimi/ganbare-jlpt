@@ -1,6 +1,4 @@
 :root {
-  --btn-color: #e8dbee;
-  --paragraph-color: #8e7f93;
   --backround-color: #f7f7f7;
 }
 
@@ -28,7 +26,7 @@
   justify-content: space-around;
 }
 .time-btn {
-  background-color: var(--btn-color);
+  background-color:  #e8dbee;
   border-radius: 4px;
   font-weight: 700;
   color: white;
