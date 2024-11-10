@@ -1,16 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import "./Rank.css";
+import axios from "axios";
 
+export default function Rank(props) {
+  const { setError, setLoad } = props;
 
-export default function Rank() {
+  const [results, setResults] = useState([]);
 
-  // hardcoded until i fix my database 
-  const leaderboards = [
-    { rank: 1, username: "Hard Coding", score: 50 },
-    { rank: 2, username: "Hard Coding", score: 30 },
-    { rank: 3, username: "Hard Coding", score: 10 },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5171/api/v1/results"
+        );
 
+        const sortedResults = response.data.sort(
+          (a, b) => b.totalScore - a.totalScore
+        );
+
+        sortedResults.forEach((result, index) => {
+          result.rank = index + 1;
+        });
+
+        setResults(sortedResults);
+      } catch (error) {
+        setError("Error fetching data. Please try again later.");
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoad(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(results)
   return (
     <div className="container-fulid">
       <div className="rank">
@@ -23,11 +47,11 @@ export default function Rank() {
             </tr>
           </thead>
           <tbody>
-            {leaderboards.map((leaderboard) => (
-              <tr key={leaderboard.rank}>
-                <td>{leaderboard.rank}</td>
-                <td>{leaderboard.username}</td>
-                <td>{leaderboard.score}</td>
+            {results.map((result) => (
+              <tr key={result.resultId}>
+                <td>{result.rank}</td>
+                <td>{result.userId}</td>
+                <td>{result.totalScore}</td>
               </tr>
             ))}
           </tbody>
@@ -36,4 +60,3 @@ export default function Rank() {
     </div>
   );
 }
-

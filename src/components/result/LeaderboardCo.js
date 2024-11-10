@@ -1,33 +1,42 @@
-import React from 'react'
+import React from "react";
 import "./LeaderboardCo.css";
-import Rank from "./Rank"
+import Rank from "./Rank";
+
+export default function LeaderboardCo(props) {
+  const { setError, setLoad } = props;
 
 
-export default function LeaderboardCo() {
-  // import axios and fetch leaderboard data
-  
-  const handleClick = (e) => {
-  console.log(e.target)
-}
-  
   return (
     <div className="container-fulid">
       <div className="leaderboard-co">
         <h2>Leaderboard🏅</h2>
         <div className="time">
-          <button onClick={handleClick} className="time-btn">
+          <button
+            className="time-btn"
+            // onClick={handleClick}
+          >
             7 Days
           </button>
-          <button onClick={handleClick} className="time-btn">
+          <button
+            className="time-btn"
+            //  onClick={handleClick}
+          >
             30 Days
           </button>
-          <button onClick={handleClick} className="time-btn">
+          <button
+            className="time-btn"
+            // onClick={handleClick}
+          >
             All-Time
           </button>
         </div>
-        <Rank />
+        <Rank
+          // score={score}
+          // setScore={setScore}
+          setError={setError}
+          setLoad={setLoad}
+        />
       </div>
     </div>
   );
 }
-

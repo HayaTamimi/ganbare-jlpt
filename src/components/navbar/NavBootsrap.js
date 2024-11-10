@@ -30,7 +30,10 @@ export default function NavBootstrap(props) {
               <Nav.Link style={{ color: "##595959" }} href="/dictionary">
                 Dictionary
               </Nav.Link>
-              <Nav.Link style={{ color: "##595959" }} href="/leaderboard">
+              <Nav.Link
+                style={{ color: "##595959" }}
+                href="/leaderboard/90aeb7b9-5153-4fea-adc3-c88e360b5917"
+              >
                 Leaderboard
               </Nav.Link>
               {isAuthenticated ? (

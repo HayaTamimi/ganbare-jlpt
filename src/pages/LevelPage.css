@@ -1,6 +1,4 @@
 :root {
-  --btn-color: #e8dbee;
-  --paragraph-color: #8e7f93;
   --backround-color: #f7f7f7;
   --defult-font: "Lato", sans-serif;
 }
@@ -43,7 +41,7 @@ body {
 
 
 .btn-branding-easy {
-  background-color: var(--btn-color);
+  background-color: #e8dbee;
   border-radius: 4px;
   color: white;
   border: none;

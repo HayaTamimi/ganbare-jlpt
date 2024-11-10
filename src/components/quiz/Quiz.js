@@ -6,7 +6,9 @@ import { useParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 
 
-export default function Quiz() {
+export default function Quiz(props) {
+    const { score, setScore, userData, setUserData, getUserData } = props;
+
   const { quizId } = useParams();
 
   const urlquiz = `http://localhost:5171/api/v1/quizzes/${quizId}`;
@@ -14,7 +16,7 @@ export default function Quiz() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [score, setScore] = useState(0);
+  //const [score, setScore] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,18 +80,13 @@ export default function Quiz() {
         </div>
       )}
 
-      {currentIndex === questions.length - 1 && <Result score={score} />}
+      {currentIndex === questions.length - 1 && (
+        <Result
+          score={score}
+          userData={userData}
+    
+        />
+      )}
     </div>
   );
 }
-// "quizId": "53af0cce-ef80-4ddd-920f-9ecab0dc6865",
-//   "quizScore": 0,
-//   "timeTaken": 0,
-//   "questions": [
-//       {
-//           "questionId": "2f92ce7f-9753-41c0-988b-50e0a250ba51",
-//           "questionText": "（一日） で このほんを よみました。",
-//           "answer": "いちにち",
-//           "options": null,
-//           "quizId": "53af0cce-ef80-4ddd-920f-9ecab0dc6865"
-//       }

@@ -26,16 +26,13 @@ export default function App() {
   const [response, setResponse] = useState({});
   const [load, setLoad] = useState(true);
   const [error, setError] = useState(null);
-
-   // console.log(response[0]);
-
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     function getData() {
       axios
         .get(apiUrl)
         .then((response) => {
-          // console.log(response.data.questionText); worked!
           setResponse(response.data);
           setLoad(false);
         })
@@ -65,7 +62,6 @@ export default function App() {
       })
       .catch((err) => {
         setIsUserDataLoading(false);
-       // console.log(err);
       });
   }
 
@@ -102,15 +98,30 @@ export default function App() {
         },
         {
           path: "/quizzes/:quizId",
-          element: <QuizPage />,
+          element: (
+            <QuizPage
+              score={score}
+              setScore={setScore}
+              userData={userData}
+              setUserData={setUserData}
+              getUserData={getUserData}
+            />
+          ),
         },
         {
           path: "/quizzes",
           element: <LevelPage />,
         },
         {
-          path: "/leaderboard",
-          element: <Leaderboard />,
+          path: "/leaderboard/:leaderboardId",
+          element: (
+            <Leaderboard
+              // score={score}
+              // setScore={setScore}
+              setError={setError}
+              setLoad={setLoad}
+            />
+          ),
         },
         {
           path: "/",
