@@ -4,16 +4,12 @@ import axios from "axios";
 import {
   Button,
   Popover,
-  InputLabel,
-  MenuItem,
-  FormControl,
-  Select,
+  TextField,
 } from "@mui/material";
-import CreateItem from "./CreateItem";
-
+import CreateQItem from "./CreateQItem";
 
 export default function QuizDashboard() {
-  const [quizzes, setQuizzes] = useState([]);
+  const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -27,26 +23,26 @@ export default function QuizDashboard() {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
-  const [quizInfo, setQuizInfo] = useState({
-    // questionText: "",
-    // answer: "",
-    // quizId: "",
+  const [questionInfo, setQuestionInfo] = useState({
+    questionText: "",
+    answer: "",
+    quizId: "",
     level: "",
   });
 
-  // const handleChange = (event) => {
-  //   setQuizInfo({
-  //     ...quizInfo,
-  //     [event.target.name]: event.target.value,
-  //   });
-  // };
+  const handleChange = (event) => {
+    setQuestionInfo({
+      ...questionInfo,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const createItem = () => {
     const token = localStorage.getItem("token");
-    const url = "http://localhost:5171/api/v1/quizzes";
+    const url = "http://localhost:5171/api/v1/questions";
 
     axios
-      .post(url, quizInfo, {
+      .post(url, questionInfo, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -54,40 +50,39 @@ export default function QuizDashboard() {
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
-          alert("Quiz created successfully!");
-          fetchQuizzes(); // Call fetchQuizzes to update the list
+          alert("Question created successfully!");
+          fetchQuestions(); // Call fetchQuizzes to update the list
         }
       })
       .catch((error) => {
         console.error(error);
-        alert("Failed to create quiz");
+        alert("Failed to create question");
       });
   };
 
-
-  const fetchQuizzes = () => {
-    const url = "http://localhost:5171/api/v1/quizzes";
+  const fetchQuestions = () => {
+    const url = "http://localhost:5171/api/v1/questions";
     axios
       .get(url)
       .then((response) => {
-        setQuizzes(response.data);
+        setQuestions(response.data);
         setLoading(false);
       })
       .catch((error) => {
-        setError("Failed to fetch quizzes");
+        setError("Failed to fetch questions");
         setLoading(false);
       });
   };
 
   useEffect(() => {
-    fetchQuizzes();
+    fetchQuestions();
   }, []);
 
   return (
     <div>
-      <h1>Quiz Dashboard</h1>
+      <h1>Question Dashboard</h1>
       <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-        Create New Quiz
+        Create New Question
       </Button>
       <Popover
         id={id}
@@ -99,7 +94,7 @@ export default function QuizDashboard() {
           horizontal: "left",
         }}
       >
-        {/* <TextField
+        <TextField
           name="questionText"
           label="Question Text"
           variant="standard"
@@ -114,32 +109,18 @@ export default function QuizDashboard() {
           helperText="Enter the correct answer"
           onChange={handleChange}
         />
-        <br /> */}
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Select Level</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={quizInfo.level}
-            onChange={(event) =>
-              setQuizInfo({ ...quizInfo, level: event.target.value })
-            }
-          >
-            <MenuItem key="n5" value="N5">
-              N5
-            </MenuItem>
-            <MenuItem key="n4" value="N4">
-              N4
-            </MenuItem>
-          </Select>
-        </FormControl>
-        <Button onClick={createItem}>Add Quiz</Button>
+
+        <Button onClick={createItem}>Add Question</Button>
       </Popover>
 
-      <h1>List of Quizzes</h1>
+      <h1>List of Questions</h1>
       <div>
-        {quizzes.map((quiz) => (
-          <CreateItem key={quiz.id} quiz={quiz} fetchQuizzes={fetchQuizzes} />
+        {questions.map((question) => (
+          <CreateQItem
+            key={question.id}
+            question={question}
+            fetchQuestions={fetchQuestions}
+          />
         ))}
       </div>
     </div>

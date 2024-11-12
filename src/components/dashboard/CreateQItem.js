@@ -3,12 +3,12 @@ import React from "react";
 import axios from "axios";
 import { Button } from "@mui/material";
 
-export default function CreateItem(props) {
-  const { quiz, fetchQuizzes } = props;
+export default function CreateQItem(props) {
+  const { question, fetchQuestions } = props;
 
   function deleteById() {
     const token = localStorage.getItem("token");
-    const url = `http://localhost:5171/api/v1/questions/${quiz.id}`;
+    const url = `http://localhost:5171/api/v1/questions/${question.id}`;
     axios
       .delete(url, {
         headers: {
@@ -18,17 +18,17 @@ export default function CreateItem(props) {
       .then((res) => {
         console.log(res);
         if (res.status === 204) {
-          alert("The quiz is deleted successfully!");
-          fetchQuizzes();
+          alert("a Question is deleted successfully!");
+          fetchQuestions();
         }
       })
       .catch((error) => console.log(error));
   }
 
-  console.log(quiz);
+
   return (
     <div>
-      <p> {quiz.level}</p>
+      <p> {question.questionText}</p>
       <Button onClick={deleteById}> Delete</Button>
     </div>
   );

@@ -1,7 +1,5 @@
 :root {
-  --paragraph-color: #8e7f93;
   --backround-color: #f7f7f7;
-  --defult-font: "Lato", sans-serif;
 }
 
 body {
@@ -17,45 +15,26 @@ body {
 }
 
 .dashboard {
-  background-color: white;
-  border: 80px;
-  border-radius: 20px;
-  max-width: 700px;
   margin: 90px auto;
   padding: 40px;
   text-align: center;
+
 }
 
-.dashboard h3 {
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  margin-bottom: 50px;
-  font-size: 30px;
-  color: #8e7f93;
-}
-
-.link-dashboard {
-  margin-bottom: 50px;
+.dash li {
+  margin-bottom: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.user-link,
-.quiz-link {
-  background-color:  #e8dbee;
+.dash a {
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #ffffff;
   border-radius: 4px;
-  color: white;
+  color:gray;
   border: none;
   font-size: 18px;
   line-height: 27px;
-  margin-bottom: 50px;
-  padding: 15px 30px;
-  text-decoration: none;
-  transition: all 0.3s ease-out;
-}
-
-.user-link:hover,
-.quiz-link:hover {
-  background-color: plum;
-  color: white;
-}
+  padding: 5px 10px;
+} 

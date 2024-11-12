@@ -18,6 +18,7 @@ import QuizDash from "./pages/QuizDash";
 import QuizPage from "./pages/QuizPage";
 import Leaderboard from "./pages/Leaderboard";
 import UserDashBoard from "./components/dashboard/UserDashboard";
+import QuestionDash from "./pages/QuestionDash"
 
 
 export default function App() {
@@ -180,6 +181,30 @@ export default function App() {
             />
           ),
         },
+        {
+          path: "/questions-dashboard",
+          element: (
+            <ProtectedRoute
+              isUserDataLoading={isUserDataLoading}
+              isAuthenticated={isAuthenticated}
+              shouldCheckAdmin={true} //check above
+              userData={userData}
+              element={<QuestionDash />}
+            />
+          ),
+        },
+        // {
+        //   path: "/options-dashboard",
+        //   element: (
+        //     <ProtectedRoute
+        //       isUserDataLoading={isUserDataLoading}
+        //       isAuthenticated={isAuthenticated}
+        //       shouldCheckAdmin={true}
+        //       userData={userData}
+        //       element={<OptionDash />}
+        //     />
+        //   ),
+        // },
         {
           path: "/users-dashboard",
           element: (
