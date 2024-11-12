@@ -72,9 +72,9 @@ export default function Quiz(props) {
         <div className="quiz">
           <h2>{currentQuestion.questionText}</h2>
           <div className="options">
-            {currentQuestion.options.map((option, index) => (
+            {currentQuestion.options.map((option) => (
               <h5
-                key={index}
+                key={option.id}
                 onClick={() => handleAnswerClick(option.isCorrect)}
               >
                 {option.choice}
