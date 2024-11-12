@@ -17,7 +17,7 @@ export default function Quiz(props) {
 
   const { quizId } = useParams();
 
-  const urlquiz = `http://localhost:5171/api/v1/quizzes/${quizId}`;
+  const urlquiz = `https://ganbare.onrender.com/api/v1/quizzes/${quizId}`;
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

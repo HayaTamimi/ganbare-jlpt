@@ -8,7 +8,7 @@ export default function UserItem(prop) {
   function deleteUser() {
     const token = localStorage.getItem("token");
     axios
-      .delete(`http://localhost:5171/api/v1/users/${user.id}`, {
+      .delete(`https://ganbare.onrender.com/v1/users/${user.id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

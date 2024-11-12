@@ -11,10 +11,10 @@ export default function Rank(props) {
     const fetchData = async () => {
       try {
         const resultsResponse = await axios.get(
-          "http://localhost:5171/api/v1/results"
+          "https://ganbare.onrender.com/api/v1/results"
         );
         const usernamesResponse = await axios.get(
-          "http://localhost:5171/api/v1/users"
+          "https://ganbare.onrender.com/api/v1/users"
         );
 
         const sortedResults = resultsResponse.data.sort(

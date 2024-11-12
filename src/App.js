@@ -22,7 +22,7 @@ import QuestionDash from "./pages/QuestionDash"
 
 
 export default function App() {
-  let apiUrl = "http://localhost:5171/api/v1/quizzes/";
+  let apiUrl = "https://ganbare.onrender.com/api/v1/quizzes/";
 
 
   const [response, setResponse] = useState({});
@@ -53,7 +53,7 @@ export default function App() {
     setIsUserDataLoading(true);
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5171/api/v1/users/auth", {
+      .get("https://ganbare.onrender.com/api/v1/users/auth", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

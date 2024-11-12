@@ -39,7 +39,7 @@ export default function QuizDashboard() {
 
   const createItem = () => {
     const token = localStorage.getItem("token");
-    const url = "http://localhost:5171/api/v1/questions";
+    const url = "https://ganbare.onrender.com/api/v1/questions";
 
     axios
       .post(url, questionInfo, {
@@ -61,7 +61,7 @@ export default function QuizDashboard() {
   };
 
   const fetchQuestions = () => {
-    const url = "http://localhost:5171/api/v1/questions";
+    const url = "https://ganbare.onrender.com/api/v1/questions";
     axios
       .get(url)
       .then((response) => {

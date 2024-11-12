@@ -26,7 +26,7 @@ export default function UserRegister() {
   const navigate = useNavigate();
 
   function registerNewUser() {
-    const userUrl = "http://localhost:5171/api/v1/users/signup";
+    const userUrl = "https://ganbare.onrender.com/api/v1/users/signup";
 
     axios
       .post(userUrl, userInformation)

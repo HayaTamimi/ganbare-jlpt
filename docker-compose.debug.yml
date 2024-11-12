@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  sda3onlineferepo:
+    image: sda3onlineferepo
+    build:
+      context: .
+      dockerfile: ./Dockerfile

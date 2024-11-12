@@ -11,7 +11,7 @@ export default function LevelPage(props) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5171/api/v1/quizzes"
+          "https://ganbare.onrender.com/api/v1/quizzes"
         );
         setQuizzes(response.data);
       } catch (error) {

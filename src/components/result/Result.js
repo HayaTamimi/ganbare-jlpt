@@ -14,7 +14,7 @@ export default function Result(props) {
     setError(null); 
     try {
       const response = await axios.put(
-        `http://localhost:5171/api/v1/users/${userId}`,
+        `https://ganbare.onrender.com/api/v1/users/${userId}`,
         {
           score,
           userId,

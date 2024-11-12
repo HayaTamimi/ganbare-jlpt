@@ -8,7 +8,7 @@ const [userList, setUserList] = useState([]);
   function fetchUserList() {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5171/api/v1/users", {
+      .get("https://ganbare.onrender.com/api/v1/users", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

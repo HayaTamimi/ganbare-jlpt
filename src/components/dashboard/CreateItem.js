@@ -8,7 +8,7 @@ export default function CreateItem(props) {
 
   function deleteById() {
     const token = localStorage.getItem("token");
-    const url = `http://localhost:5171/api/v1/questions/${quiz.id}`;
+    const url = `https://ganbare.onrender.com/api/v1/questions/${quiz.id}`;
     axios
       .delete(url, {
         headers: {

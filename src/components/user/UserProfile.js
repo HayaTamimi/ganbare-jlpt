@@ -17,7 +17,7 @@ export default function UserProfile(props) {
 
     axios
       .patch(
-        `http://localhost:5171/api/v1/users/${userData.userId}`,
+        `https://ganbare.onrender.com/api/v1/users/${userData.userId}`,
         {
           username: newUsername,
         },
@@ -30,7 +30,6 @@ export default function UserProfile(props) {
       .then((res) => {
         setUserData(res.data);
         getUserData();
-
       })
       .catch((error) => console.log(error));
   };
