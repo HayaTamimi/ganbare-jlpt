@@ -6,7 +6,7 @@ import axios from "axios";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import LayOut from "./components/layout/LayOut";
-import Homepage from "./pages/Homepage";
+import HomePageComponent from "./pages/HomePageComponent";
 import LevelPage from "./pages/LevelPage";
 import Dictionary from "./pages/Dictionary";
 import UserRegister from "./components/user/UserRegister";
@@ -127,7 +127,7 @@ export default function App() {
         },
         {
           path: "/",
-          element: <Homepage />,
+          element: <HomePageComponent />,
         },
         {
           path: "/dictionary",
