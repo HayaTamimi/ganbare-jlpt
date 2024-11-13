@@ -22,7 +22,7 @@ import QuestionDash from "./pages/QuestionDash"
 
 
 export default function App() {
-  let apiUrl = "https://ganbare.onrender.com/api/v1/quizzes/";
+  let apiUrl = "https://ganbare-jlpt.onrender.com";
 
 
   const [response, setResponse] = useState({});
